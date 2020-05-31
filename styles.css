@@ -42,6 +42,10 @@ header{
     color: #0088a9
 }
 
+.links a.active{
+    text-decoration: underline;
+}
+
 button{
     padding: 9px 25px;
     background-color: rgba(0, 136, 169, 1);
@@ -76,10 +80,11 @@ button:hover{
 
 
 footer {
+    background-color: black;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    color: white;
-    text-align: center;
+    color: #f2f2f2;
+    text-align: left;
   }
