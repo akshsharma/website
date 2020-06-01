@@ -165,8 +165,18 @@ button:hover{
 }
 
 @media(max-width: 600px){
+    .footer{
+        padding: 0 0;
+        box-sizing: content-box;
+        height: auto;
+    }
+    
     .footer .inner_footer{
         width: 90%;
+        background: black;
+    }
+    .footer .inner_footer.logo{
+        background: black;
     }
 
     .inner_footer .logo, .inner_footer .footer_third{
