@@ -1,18 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
 
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: #24252a;
-    font-family: "Telex", sans-serif;
+    font-family: "Telex", sans-serif; 
     color: #f2f2f2;
     
-}
+} */
 
 html, body{
     height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    background-color: #24252a;
+    font-family: "Telex", sans-serif; 
+    color: black;
 }
 
 #container{
@@ -24,43 +34,52 @@ html, body{
     padding-bottom: 100px;
 }
 
-li, a, button{
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #f2f2f2;
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Ubuntu", sans-srif;
     text-decoration: none;
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-}
-
-.name {
+.name{
+    color : #f2f2f2;
+    font-size: 22px;
     cursor: pointer;
 }
 
-.links li {
-    display: inline-block;
-    padding: 0px 20px;
+.name a{
+    text-decoration: none;
+    color: #f2f2f2;
 }
 
-.links li a {
+.links{
+    display: flex;
+    justify-content: space-around;
+    width: 45%;
+}
+
+.links li{
+    list-style: none;
+}
+
+.links a{
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.links li a{
     transition: all 0.3s ease 0s;
 }
 
-.links li a:hover {
-    color: #0088a9
-}
-
-.links .link.active{
-    text-decoration: underline;
+.links li a:hover{
+    color: #0088a9;
 }
 
 button{
+    font-family: "Ubuntu", sans-serif;
+    color: #f2f2f2;
     padding: 9px 25px;
     background-color: rgba(0, 136, 169, 1);
     border: none;
@@ -73,6 +92,17 @@ button:hover{
     background-color: rgba(0, 136, 169, 0.8);
 }
 
+.burger{
+    display: none;
+}
+
+.burger div{
+    width: 20px;
+    height: 3px;
+    background-color: #f2f2f2;
+    margin: 5px;
+}
+ 
 .greeting{
     margin: 0;
     padding: 0;
@@ -93,22 +123,85 @@ button:hover{
 }
 
 
+@media(max-width: 820px){
+    body{
+        overflow-x: hidden;
+    }
+
+    .links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #24252a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%); 
+        transition: transform 1s ease;
+    }
+
+    /* .links li{
+        opacity: 0;
+    } */
+
+    .burger{
+        display: block;
+        cursor: pointer;
+    }
+
+    /* .footer{
+        padding: 0 0;
+        box-sizing: content-box;
+        height: auto;
+        display: block;
+    } */
+    
+    .footer .inner_footer{
+        width: 90%;
+        background: black;
+    }
+
+    .footer a{
+        text-decoration: none;
+    }
+
+    .inner_footer .logo, .inner_footer .footer_third{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+}
+
+.activeNav{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px)
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 .footer {
+    font-family: "Ubuntu", sans-serif;
     width: 100%;
-    /* display: block;
-    overflow: hidden;*/
+    display: block;
+    overflow: hidden;
     padding: 70px 0; 
     box-sizing: border-box;
     background: black;
     position: relative;
     height: 250px;
-    /* margin-top: -250px; */
-    /* background-color: black; */
-    clear: both;
 }
 
 .inner_footer{
-    background: black;
     display: block;
     margin: 0 auto;
     width: 1100px;
@@ -116,12 +209,12 @@ button:hover{
 }
 
 .inner_footer .logo{
-    font-size: 1em;
+    font-size: 2em;
     width: 35%;
     float: left;
     height: 100%;
     display: block;
-    background-color: black;
+    color: #f2f2f2;
 }
 
 .inner_footer .footer_third{
@@ -129,7 +222,6 @@ button:hover{
     margin-right: 10px;
     float: left;
     height: 100%;
-    background-color: black;
 }
 
 .inner_footer .footer_third:last-child{
@@ -143,44 +235,20 @@ button:hover{
     display: block;
     width: 100%;
     margin-bottom: 20px;
-    background-color: black;
 }
 
 .inner_footer .footer_third a{
-    /* font-family: "Telex", sans-serif; */
+    font-family: "Telex", sans-serif;
     font-size: 18px;
     font-weight: 200;
     color: #f2f2f2;
     display: block;
     width: 100%;
     padding-bottom: 5px;
-    background-color: black;
 }
 
 .inner_footer .footer_third li{
     display: inline-block;
     padding: 0 5px;
     font-size: 20px;
-    background-color: black;
-}
-
-@media(max-width: 600px){
-    .footer{
-        padding: 0 0;
-        box-sizing: content-box;
-        height: auto;
-    }
-    
-    .footer .inner_footer{
-        width: 90%;
-        background: black;
-    }
-    .footer .inner_footer.logo{
-        background: black;
-    }
-
-    .inner_footer .logo, .inner_footer .footer_third{
-        width: 100%;
-        margin-bottom: 30px;
-    }
 }
